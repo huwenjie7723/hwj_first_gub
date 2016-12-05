@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<pre>
+			1
+		</pre>
+		<pre>2</pre>
+		<h2>sss</h2>
+		<h2>sss</h2>
+		<script type="text/javascript">
+			var all = document.getElementsByTagName('*');
+			var selectall = document.querySelectorAll('*');
+			console.log(all);
+			console.log(all.length);
+			var newArr = Array.from(all);
+			console.log(newArr);
+			console.log('newArr slice',newArr.slice());
+			
+			
+//			自定义方法
+			function changeArr(Obj){
+				var arr = [];
+				for(var i=0;i<all.length;i++){
+					arr.push(Obj[i]);
+				}
+				return arr;
+			}
+			
+			var Arr2 = changeArr(all);
+			console.log('Arr2',Arr2);
+			console.log('Arr2 slice',Arr2.slice());
+/*			var body = document.getElementsByTagName('body')[0];
+			var div = body.getElementsByTagName('div');*/
+			
+			function ToArr(Arr){
+				var i ,
+					arr = [];
+					s = Arr.length;
+					for(i=0;i<s;i++){
+						if(arr.indexOf(Arr[i].tagName) == -1){
+							arr.push(Arr[i].tagName);
+						}					
+//						console.log(arr);
+					}
+					return arr;
+			}
+			var toarr = ToArr(Arr2);
+			console.log('toarr',toarr);
+			
+			function Toarr1(Arr){
+				var i,j,
+//				var arr = [];
+					s = Arr.length;
+					document.write(s);
+					for(i=0;i<s-1;i++){						
+						for(j=i+1;j<s;){
+							if(Arr[i] == Arr[j]){
+								Arr.splice(j, 1);
+								s = Arr.length;
+							}else{
+								j++;
+							}
+						}
+					}
+					return Arr;
+			}
+			var toarr1 = Toarr1(Arr2);
+			console.log('toarr1',toarr1);
+		</script>
+	</body>
+</html>
